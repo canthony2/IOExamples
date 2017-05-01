@@ -34,18 +34,19 @@ public class Lab1 {
                       
                       String[] parts = line.split(" ");
                       contact.setFirstName(parts[0]);
-                      contact.setLastName(parts[0]);
+                      contact.setLastName(parts[1]);
                       
                       lineCount++;
                   } else if(lineCount > 2) {
                       contact = new Contact();
                       lineCount = 0;
-                  } else {
-                      lineCount++;
                   }
+                  
 		  line = in.readLine();  // strips out any carriage return chars
                   if(lineCount == 1) {
                       contact.setAddress(line);
+                      lineCount++;
+                      
                   } else if(lineCount == 2) {
                       String[] planetParts = line.split(", ");
                       contact.setIsland(planetParts[0]);
