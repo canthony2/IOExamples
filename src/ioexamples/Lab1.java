@@ -6,6 +6,8 @@
 package ioexamples;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -17,6 +19,8 @@ public class Lab1 {
         File file = new File("src" + File.separatorChar + "contactList.txt");
         
         BufferedReader in = null;
+        List<Contact> contacts = new ArrayList<>();
+        
         try {
 	   in = new BufferedReader(new FileReader(file));
            
@@ -24,12 +28,20 @@ public class Lab1 {
            Contact contact = null;
 	   String line = in.readLine();
 	   while(line != null){
-		  if(lineCount == 0 || lineCount > 2) {
+		  if(lineCount == 0) {
                       contact = new Contact();
+                      contacts.add(contact);
+                      lineCount++;
+                  } else if(lineCount > 2) {
+                      contact = new Contact();
+                      lineCount = 0;
+                  } else {
+                      lineCount++;
                   }
 		  line = in.readLine();  // strips out any carriage return chars
-                  lineCount++;
 	   }
+           
+            System.out.println(contacts.size());
 	 
         } catch(IOException ioe) {
             System.out.println("Houston, we have a problem! reading this file");
