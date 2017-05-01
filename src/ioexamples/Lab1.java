@@ -47,8 +47,11 @@ public class Lab1 {
                   if(lineCount == 1) {
                       contact.setAddress(line);
                   } else if(lineCount == 2) {
-                      String[] cityParts = line.split(",");
-                      
+                      String[] planetParts = line.split(", ");
+                      contact.setIsland(planetParts[0]);
+                      String[] planetSectorParts = planetParts[1].split(" ");
+                      contact.setPlanet(planetSectorParts[0]);
+                      contact.setSector(planetSectorParts[1]);
                   }
 	   }
            
