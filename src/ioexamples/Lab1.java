@@ -31,6 +31,11 @@ public class Lab1 {
 		  if(lineCount == 0) {
                       contact = new Contact();
                       contacts.add(contact);
+                      
+                      String[] parts = line.split(" ");
+                      contact.setFirstName(parts[0]);
+                      contact.setLastName(parts[0]);
+                      
                       lineCount++;
                   } else if(lineCount > 2) {
                       contact = new Contact();
@@ -39,6 +44,12 @@ public class Lab1 {
                       lineCount++;
                   }
 		  line = in.readLine();  // strips out any carriage return chars
+                  if(lineCount == 1) {
+                      contact.setAddress(line);
+                  } else if(lineCount == 2) {
+                      String[] cityParts = line.split(",");
+                      
+                  }
 	   }
            
             System.out.println(contacts.size());

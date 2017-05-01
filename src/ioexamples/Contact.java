@@ -13,7 +13,8 @@ import java.util.Objects;
  */
 public class Contact {
     
-    private String name;
+    private String firstName;
+    private String lastName;
     private String address;
     private String home;
     private String region;
@@ -23,19 +24,20 @@ public class Contact {
 
     @Override
     public String toString() {
-        return "Contact{" + "name=" + name + ", address=" + address + ", home=" + home + ", region=" + region + ", island=" + island + ", planet=" + planet + ", sector=" + sector + '}';
+        return "Contact{" + "firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", home=" + home + ", region=" + region + ", island=" + island + ", planet=" + planet + ", sector=" + sector + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 23 * hash + Objects.hashCode(this.name);
-        hash = 23 * hash + Objects.hashCode(this.address);
-        hash = 23 * hash + Objects.hashCode(this.home);
-        hash = 23 * hash + Objects.hashCode(this.region);
-        hash = 23 * hash + Objects.hashCode(this.island);
-        hash = 23 * hash + Objects.hashCode(this.planet);
-        hash = 23 * hash + Objects.hashCode(this.sector);
+        int hash = 5;
+        hash = 97 * hash + Objects.hashCode(this.firstName);
+        hash = 97 * hash + Objects.hashCode(this.lastName);
+        hash = 97 * hash + Objects.hashCode(this.address);
+        hash = 97 * hash + Objects.hashCode(this.home);
+        hash = 97 * hash + Objects.hashCode(this.region);
+        hash = 97 * hash + Objects.hashCode(this.island);
+        hash = 97 * hash + Objects.hashCode(this.planet);
+        hash = 97 * hash + Objects.hashCode(this.sector);
         return hash;
     }
 
@@ -51,7 +53,10 @@ public class Contact {
             return false;
         }
         final Contact other = (Contact) obj;
-        if (!Objects.equals(this.name, other.name)) {
+        if (!Objects.equals(this.firstName, other.firstName)) {
+            return false;
+        }
+        if (!Objects.equals(this.lastName, other.lastName)) {
             return false;
         }
         if (!Objects.equals(this.address, other.address)) {
@@ -75,12 +80,20 @@ public class Contact {
         return true;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getAddress() {
