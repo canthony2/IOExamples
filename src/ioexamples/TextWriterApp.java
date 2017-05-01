@@ -14,7 +14,7 @@ public class TextWriterApp{
    	  boolean append = false;   // you can change this
 
 	  // This references the file in the working directory
-	  File data = new File("src" + File.separatorChar + "test.out");
+	  File data = new File("src" + File.separatorChar + "test.txt");
 	  		
       // This is where we setup our streams (append = false means overwrite)
       // new FileWriter() creates the file if doesn't exit
